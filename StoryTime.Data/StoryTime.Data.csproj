@@ -56,12 +56,22 @@
     <Compile Include="CharacterPrompt.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="LocationPrompt.cs" />
+    <Compile Include="Migrations\201808201856000_first.cs" />
+    <Compile Include="Migrations\201808201856000_first.Designer.cs">
+      <DependentUpon>201808201856000_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwistPrompt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808201856000_first.resx">
+      <DependentUpon>201808201856000_first.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
