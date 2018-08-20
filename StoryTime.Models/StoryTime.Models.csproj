@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminUserCreate.cs" />
+    <Compile Include="CharacterPromptCreate.cs" />
     <Compile Include="CharacterPromptListItem.cs" />
     <Compile Include="LocationPromptListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

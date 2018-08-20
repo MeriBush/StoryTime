@@ -16,5 +16,21 @@ namespace StoryTime.WebMVC.Controllers
             var model = new CharacterPromptListItem[0];
             return View(model);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CharacterPromptCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }
