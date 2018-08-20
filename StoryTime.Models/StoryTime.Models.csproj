@@ -56,8 +56,10 @@
     <Compile Include="AdminUserCreate.cs" />
     <Compile Include="CharacterPromptCreate.cs" />
     <Compile Include="CharacterPromptListItem.cs" />
+    <Compile Include="LocationPromptCreate.cs" />
     <Compile Include="LocationPromptListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TwistPromptCreate.cs" />
     <Compile Include="TwistPromptListItem.cs" />
   </ItemGroup>
   <ItemGroup>

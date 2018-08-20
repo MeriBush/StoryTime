@@ -12,9 +12,9 @@ namespace StoryTime.Models
         public int LocationId { get; set; }
         public string Location { get; set; }
 
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        [Display(Name ="Created")]
         public override string ToString()
         {
             return base.ToString();

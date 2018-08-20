@@ -272,6 +272,8 @@
     <Content Include="Views\LocationPrompt\Index.cshtml" />
     <Content Include="Views\TwistPrompt\Index.cshtml" />
     <Content Include="Views\CharacterPrompt\Create.cshtml" />
+    <Content Include="Views\LocationPrompt\Create.cshtml" />
+    <Content Include="Views\TwistPrompt\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
