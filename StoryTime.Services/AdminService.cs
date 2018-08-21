@@ -19,7 +19,7 @@ namespace StoryTime.Services
             _userId = userId;
         }
 
-        public IEnumerable<StoryTime.Data.ApplicationUser> GetUserList()
+        public IEnumerable<ApplicationUser> GetUserList()
         {
             using (var context = new ApplicationDbContext())
             {
