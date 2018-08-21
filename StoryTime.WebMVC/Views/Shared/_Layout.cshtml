@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Characters", "Index", "CharacterPrompt")</li>
+                        <li>@Html.ActionLink("Characters", "Create", "CharacterPrompt")</li>
                         <li>@Html.ActionLink("Locations", "Index", "LocationPrompt")</li>
                         <li>@Html.ActionLink("Plot Twists", "Index", "TwistPrompt")</li>
 
