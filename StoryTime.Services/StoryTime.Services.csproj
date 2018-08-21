@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminService.cs" />
+    <Compile Include="CharacterPromptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +69,10 @@
     <ProjectReference Include="..\StoryTime.Data\StoryTime.Data.csproj">
       <Project>{69D08EF1-D46E-4C7F-93E3-B70BA6817E46}</Project>
       <Name>StoryTime.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoryTime.Models\StoryTime.Models.csproj">
+      <Project>{27ba9bf6-14e6-4c13-b2cf-4d0bf83a1c1c}</Project>
+      <Name>StoryTime.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
