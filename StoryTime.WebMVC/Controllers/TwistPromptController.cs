@@ -1,4 +1,6 @@
-﻿using StoryTime.Models;
+﻿using Microsoft.AspNet.Identity;
+using StoryTime.Models;
+using StoryTime.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,9 @@ namespace StoryTime.WebMVC.Controllers
         // GET: TwistPrompt
         public ActionResult Index()
         {
-            var model = new TwistPromptListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TwistPromptService(userId);
+            var model = service.GetTwistPrompts();
             return View(model);
         }
 
@@ -26,11 +30,28 @@ namespace StoryTime.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TwistPromptCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View();
+
+            var service = CreateTwistPromptService();
+
+            if (service.CreateTwistPrompt(model))
+            {
+                TempData["Saveresult"] = "Your plot twist was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Your plot twist could not be created.");
+            return View(model);
+        }
+
+        private TwistPromptService CreateTwistPromptService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TwistPromptService(userId);
+            return service;
         }
     }
 }

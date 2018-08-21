@@ -35,7 +35,7 @@ namespace StoryTime.WebMVC.Controllers
                 return View(model);
             }
 
-            var service = CreateNoteService();
+            var service = CreateLocationPromptService();
 
            if (service.CreateLocationPrompt(model))
             {
@@ -47,7 +47,7 @@ namespace StoryTime.WebMVC.Controllers
             return View(model);
         }
 
-        private LocationPromptService CreateNoteService()
+        private LocationPromptService CreateLocationPromptService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new LocationPromptService(userId);
