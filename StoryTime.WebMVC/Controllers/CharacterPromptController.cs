@@ -41,6 +41,7 @@ namespace StoryTime.WebMVC.Controllers
                 return RedirectToAction("Index");
             };
 
+            ModelState.AddModelError("", "Your character could not be created.");
             return View(model);
         }
 
