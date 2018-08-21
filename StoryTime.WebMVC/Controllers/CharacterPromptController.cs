@@ -31,17 +31,24 @@ namespace StoryTime.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CharacterPromptCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreateCharacterPromptService();
+
+            if (service.CreateCharacterPrompt(model))
+            {
+                TempData["SaveResult"] = "Your character was created.";
+                return RedirectToAction("Index");
+            };
+
+            return View(model);
+        }
+
+        private CharacterPromptService CreateCharacterPromptService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CharacterPromptService(userId);
-
-            service.CreateCharacterPrompt(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
