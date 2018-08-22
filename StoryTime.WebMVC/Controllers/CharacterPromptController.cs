@@ -53,6 +53,43 @@ namespace StoryTime.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit (int id)
+        {
+            var service = CreateCharacterPromptService();
+            var detail = service.GetCharacterPromptById(id);
+            var model =
+                new CharacterPromptEdit
+                {
+                    CharacterId = detail.CharacterId,
+                    Character = detail.Character
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit (int id, CharacterPromptEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.CharacterId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateCharacterPromptService();
+
+            if(service.UpdateCharacterPrompt(model))
+            {
+                TempData["SaveResult"] = "Your character was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your character could not be updated.");
+            return View(model);
+        }
+
         [ActionName("Delete")]
         public ActionResult Delete (int id)
         {

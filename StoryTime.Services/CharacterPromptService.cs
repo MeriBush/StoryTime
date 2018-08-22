@@ -71,5 +71,21 @@ namespace StoryTime.Services
                     };
             }
         }
+
+        public bool UpdateCharacterPrompt(CharacterPromptEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .CharacterPrompts
+                    .Single(e => e.CharacterId == model.CharacterId && e.AdminId == _userId);
+
+                entity.Character = model.Character;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

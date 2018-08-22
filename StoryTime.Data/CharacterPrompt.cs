@@ -9,11 +9,11 @@ namespace StoryTime.Data
 {
     public class CharacterPrompt
     {
-        [Required]
-        public Guid AdminId { get; set; }
-
         [Key]
         public int CharacterId { get; set; }
+
+        [Required]
+        public Guid AdminId { get; set; }
 
         [Required]
         public string Character { get; set; }
@@ -21,6 +21,6 @@ namespace StoryTime.Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        public DateTimeOffset ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

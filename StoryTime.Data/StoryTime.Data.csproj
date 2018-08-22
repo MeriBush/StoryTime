@@ -53,6 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201808221431258_three.cs" />
+    <Compile Include="Migrations\201808221431258_three.Designer.cs">
+      <DependentUpon>201808221431258_three.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221744201_four.cs" />
+    <Compile Include="Migrations\201808221744201_four.Designer.cs">
+      <DependentUpon>201808221744201_four.cs</DependentUpon>
+    </Compile>
     <Compile Include="StorySubmission.cs" />
     <Compile Include="CharacterPrompt.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -72,6 +80,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808201856000_first.resx">
       <DependentUpon>201808201856000_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221431258_three.resx">
+      <DependentUpon>201808221431258_three.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221744201_four.resx">
+      <DependentUpon>201808221744201_four.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
