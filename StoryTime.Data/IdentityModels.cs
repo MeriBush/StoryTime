@@ -35,6 +35,7 @@ namespace StoryTime.Data
         public DbSet<CharacterPrompt> CharacterPrompts { get; set; }
         public DbSet<LocationPrompt> LocationPrompts { get; set; }
         public DbSet<TwistPrompt> TwistPrompts { get; set; }
+        public DbSet<StorySubmission> StorySubmissions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
