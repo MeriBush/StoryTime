@@ -282,6 +282,7 @@
     <Content Include="Views\Admin\UserIndex.cshtml" />
     <Content Include="Views\CharacterPrompt\Edit.cshtml" />
     <Content Include="Views\CharacterPrompt\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
