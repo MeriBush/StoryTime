@@ -53,5 +53,40 @@ namespace StoryTime.Services
                 return query.ToArray();
             }
         }
+
+        public LocationPromptDetail GetLocationPromptById(int LocationPromptId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .LocationPrompts
+                    .Single(e => e.LocationId == LocationPromptId && e.AdminId == _userId);
+                return
+                    new LocationPromptDetail
+                    {
+                        LocationId = entity.LocationId,
+                        Location = entity.Location,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
+
+        public bool UpdateLocationPrompt(LocationPromptEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .LocationPrompts
+                    .Single(e => e.LocationId == model.LocationId && e.AdminId == _userId);
+
+                entity.Location = model.Location;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

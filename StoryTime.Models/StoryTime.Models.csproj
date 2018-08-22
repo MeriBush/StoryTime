@@ -60,6 +60,8 @@
     <Compile Include="02_LocationPrompt\LocationPromptCreate.cs" />
     <Compile Include="02_LocationPrompt\LocationPromptListItem.cs" />
     <Compile Include="01_CharacterPrompt\CharacterPromptEdit.cs" />
+    <Compile Include="02_LocationPrompt\LocationPromptDetail.cs" />
+    <Compile Include="02_LocationPrompt\LocationPromptEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="03_TwistPrompt\TwistPromptCreate.cs" />
     <Compile Include="03_TwistPrompt\TwistPromptListItem.cs" />
