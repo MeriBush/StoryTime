@@ -88,5 +88,19 @@ namespace StoryTime.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteLocationPrompt(int LocationId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .LocationPrompts
+                    .Single(e => e.LocationId == LocationId && e.AdminId == _userId);
+                ctx.LocationPrompts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

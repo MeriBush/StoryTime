@@ -98,5 +98,25 @@ namespace StoryTime.WebMVC.Controllers
             ModelState.AddModelError("", "Your location could not be updated.");
             return View(model);
         }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateLocationPromptService();
+            var model = svc.GetLocationPromptById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateLocationPromptService();
+            service.DeleteLocationPrompt(id);
+            TempData["SaveResult"] = "Your location was deleted.";
+            return RedirectToAction("Index");
+        }
     }
 }
