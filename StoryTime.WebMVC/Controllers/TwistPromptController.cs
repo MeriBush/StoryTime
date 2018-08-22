@@ -53,5 +53,50 @@ namespace StoryTime.WebMVC.Controllers
             var service = new TwistPromptService(userId);
             return service;
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateTwistPromptService();
+            var model = svc.GetTwistPromptById(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateTwistPromptService();
+            var detail = service.GetTwistPromptById(id);
+            var model =
+                new TwistPromptEdit
+                {
+                    TwistId = detail.TwistId,
+                    Twist = detail.Twist
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, TwistPromptEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.TwistId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateTwistPromptService();
+
+            if (service.UpdateTwistPrompt(model))
+            {
+                TempData["SaveResult"] = "Your plot twist was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your plot twist could not be updated.");
+            return View(model);
+        }
     }
 }

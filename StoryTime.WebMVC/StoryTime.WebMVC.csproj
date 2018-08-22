@@ -285,6 +285,7 @@
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
     <Content Include="Views\LocationPrompt\Edit.cshtml" />
     <Content Include="Views\LocationPrompt\Delete.cshtml" />
+    <Content Include="Views\TwistPrompt\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
