@@ -47,13 +47,6 @@ namespace StoryTime.WebMVC.Controllers
             return View(model);
         }
 
-        private TwistPromptService CreateTwistPromptService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new TwistPromptService(userId);
-            return service;
-        }
-
         public ActionResult Details(int id)
         {
             var svc = CreateTwistPromptService();
@@ -97,6 +90,34 @@ namespace StoryTime.WebMVC.Controllers
 
             ModelState.AddModelError("", "Your plot twist could not be updated.");
             return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateTwistPromptService();
+            var model = svc.GetTwistPromptById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateTwistPromptService();
+            service.DeleteTwistPrompt(id);
+            TempData["SaveResult"] = "Your plot twist was deleted.";
+            return RedirectToAction("Index");
+        }
+
+
+        private TwistPromptService CreateTwistPromptService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TwistPromptService(userId);
+            return service;
         }
     }
 }

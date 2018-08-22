@@ -88,5 +88,19 @@ namespace StoryTime.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteTwistPrompt(int TwistId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .TwistPrompts
+                    .Single(e => e.TwistId == TwistId && e.AdminId == _userId);
+                ctx.TwistPrompts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
