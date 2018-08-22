@@ -45,6 +45,14 @@ namespace StoryTime.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details (int id)
+        {
+            var svc = CreateCharacterPromptService();
+            var model = svc.GetCharacterPromptById(id);
+
+            return View(model);
+        }
+
         [ActionName("Delete")]
         public ActionResult Delete (int id)
         {

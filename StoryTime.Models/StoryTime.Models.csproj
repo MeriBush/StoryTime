@@ -54,17 +54,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminUserCreate.cs" />
-    <Compile Include="CharacterPromptCreate.cs" />
-    <Compile Include="CharacterPromptListItem.cs" />
-    <Compile Include="LocationPromptCreate.cs" />
-    <Compile Include="LocationPromptListItem.cs" />
+    <Compile Include="01_CharacterPrompt\CharacterPromptCreate.cs" />
+    <Compile Include="01_CharacterPrompt\CharacterPromptDetail.cs" />
+    <Compile Include="01_CharacterPrompt\CharacterPromptListItem.cs" />
+    <Compile Include="02_LocationPrompt\LocationPromptCreate.cs" />
+    <Compile Include="02_LocationPrompt\LocationPromptListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TwistPromptCreate.cs" />
-    <Compile Include="TwistPromptListItem.cs" />
+    <Compile Include="03_TwistPrompt\TwistPromptCreate.cs" />
+    <Compile Include="03_TwistPrompt\TwistPromptListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

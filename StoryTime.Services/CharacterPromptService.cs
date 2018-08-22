@@ -52,5 +52,24 @@ namespace StoryTime.Services
                 return query.ToArray();
             }
         }
+
+        public CharacterPromptDetail GetCharacterPromptById(int CharacterPromptId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .CharacterPrompts
+                    .Single(e => e.CharacterId == CharacterPromptId && e.AdminId == _userId);
+                return
+                    new CharacterPromptDetail
+                    {
+                        CharacterId = entity.CharacterId,
+                        Character = entity.Character,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
     }
 }

@@ -5,22 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StoryTime.Data
+namespace StoryTime.Models
 {
-    public class CharacterPrompt
+    public class CharacterPromptDetail
     {
-        [Required]
-        public Guid AdminId { get; set; }
-
-        [Key]
         public int CharacterId { get; set; }
-
-        [Required]
         public string Character { get; set; }
 
-        [Required]
+        [Display(Name ="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [Display(Name ="Modified")]
         public DateTimeOffset ModifiedUtc { get; set; }
+
+        public override string ToString() => $"[{CharacterId}] {Character}";
     }
 }
