@@ -94,9 +94,20 @@ namespace StoryTime.WebMVC.Controllers
         public ActionResult Delete (int id)
         {
             var svc = CreateCharacterPromptService();
-            var model = svc.GetCharacterPromptById(id);   //This method doesn't exist yet. Oi Vey.
+            var model = svc.GetCharacterPromptById(id);
 
             return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateCharacterPromptService();
+            service.DeleteCharacterPrompt(id);
+            TempData["SaveResult"] = "Your character was deleted.";
+            return RedirectToAction("Index");
         }
 
         private CharacterPromptService CreateCharacterPromptService()

@@ -87,5 +87,19 @@ namespace StoryTime.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteCharacterPrompt(int CharacterId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .CharacterPrompts
+                    .Single(e => e.CharacterId == CharacterId && e.AdminId == _userId);
+                ctx.CharacterPrompts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
