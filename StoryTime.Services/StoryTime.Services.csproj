@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="AdminService.cs" />
     <Compile Include="CharacterPromptService.cs" />
+    <Compile Include="StorySubmissionService.cs" />
     <Compile Include="LocationPromptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwistPromptService.cs" />
