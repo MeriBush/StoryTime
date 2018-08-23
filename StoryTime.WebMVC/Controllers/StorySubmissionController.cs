@@ -24,7 +24,9 @@ namespace StoryTime.WebMVC.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var service = CreateStorySubmissionService();
+            var model = service.PromptResult();
+            return View(model);
         }
 
         [HttpPost]

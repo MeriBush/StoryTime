@@ -42,6 +42,18 @@ namespace StoryTime.Services
             }
         }
 
+        public StorySubmissionCreate PromptResult()
+        {
+            StorySubmissionCreate model = new StorySubmissionCreate();
+            using (var ctx = new ApplicationDbContext())
+            {
+                model.Character = GetCharacter(ctx);
+                model.Location = GetLocation(ctx);
+                model.Twist = GetTwist(ctx);
+                return model;
+            }
+        }
+
         public bool CreateStorySubmission(StorySubmissionCreate model)
         {
             var entity =
@@ -63,7 +75,7 @@ namespace StoryTime.Services
         {
             Random random = new Random();
             var characterList = characterCtx.CharacterPrompts.ToList();
-            var randomNumber = random.Next(0, characterList.Count+1);
+            var randomNumber = random.Next(0, characterList.Count);
             var character = characterList[randomNumber];
             return character.Character;
         }
@@ -72,7 +84,7 @@ namespace StoryTime.Services
         {
             Random random = new Random();
             var locationList = locationCtx.LocationPrompts.ToList();
-            int randomNumber = random.Next(0, locationList.Count + 1);
+            int randomNumber = random.Next(0, locationList.Count);
             var location = locationList[randomNumber];
             return location.Location;
 
@@ -82,7 +94,7 @@ namespace StoryTime.Services
         {
             Random random = new Random();
             var twistList = twistCtx.TwistPrompts.ToList();
-            int randomNumber = random.Next(0, twistList.Count + 1);
+            int randomNumber = random.Next(0, twistList.Count);
             var twist = twistList[randomNumber];
             return twist.Twist;
         }
