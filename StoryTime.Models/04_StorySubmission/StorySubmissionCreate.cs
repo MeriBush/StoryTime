@@ -8,10 +8,11 @@ namespace StoryTime.Models
 {
     public class StorySubmissionCreate
     {
-        public int StoryId { get; set; }
-        public Guid StudentId { get; set; }
+        public string Character { get; set; }
+        public string Location { get; set; }
+        public string Twist { get; set; }
+
         public string StoryTitle { get; set; }
         public string StoryText { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

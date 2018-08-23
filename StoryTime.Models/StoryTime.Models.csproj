@@ -65,9 +65,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="03_TwistPrompt\TwistPromptCreate.cs" />
     <Compile Include="03_TwistPrompt\TwistPromptListItem.cs" />
-    <Compile Include="StorySubmissionCreate.cs" />
-    <Compile Include="TwistPromptDetail.cs" />
-    <Compile Include="TwistPromptEdit.cs" />
+    <Compile Include="04_StorySubmission\StorySubmissionCreate.cs" />
+    <Compile Include="03_TwistPrompt\TwistPromptDetail.cs" />
+    <Compile Include="03_TwistPrompt\TwistPromptEdit.cs" />
+    <Compile Include="04_StorySubmission\StorySubmissionListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

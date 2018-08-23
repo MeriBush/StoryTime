@@ -18,6 +18,30 @@ namespace StoryTime.Services
             _userId = studentId;
         }
 
+        public IEnumerable<StorySubmissionListItem> GetStorySubmissions()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .StorySubmissions
+                    .Where(e => e.StudentId == _userId)  //OR e.AdminId == _userId
+                    .Select(
+                        e =>
+                        new StorySubmissionListItem
+                        {
+                            StoryId = e.StoryId,
+                            StudentId = e.StudentId,
+                            StudentName = "",
+                            StoryTitle = e.StoryTitle,
+                            StoryText = e.StoryText,
+                            CreatedUtc = DateTimeOffset.Now
+                        });
+                
+                return query.ToArray();
+            }
+        }
+
         public bool CreateStorySubmission(StorySubmissionCreate model)
         {
             var entity =
@@ -61,6 +85,24 @@ namespace StoryTime.Services
             int randomNumber = random.Next(0, twistList.Count + 1);
             var twist = twistList[randomNumber];
             return twist.Twist;
+        }
+
+        public IEnumerable<StorySubmissionListItem> GetStudentNameFromId(IEnumerable<StorySubmissionListItem> listItem)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                foreach (var item in listItem)
+                {
+                    foreach (var student in ctx.Users)
+                    {
+                        if(Guid.Parse(student.Id) == item.StudentId)
+                        {
+                            item.StudentName = student.UserName;
+                        }
+                    }
+                }
+                return listItem;
+            }
         }
     }
 }
