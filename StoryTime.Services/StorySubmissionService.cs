@@ -48,7 +48,7 @@ namespace StoryTime.Services
                 var query =
                     ctx
                     .StorySubmissions
-                    .Where(e => e.StudentId == _userId /*|| e.AdminId == _userId*/)
+                    .Where(e => e.StudentId == _userId)
                     .Select(
                         e =>
                         new StorySubmissionListItem
