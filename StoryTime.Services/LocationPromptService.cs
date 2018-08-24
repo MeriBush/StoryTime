@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace StoryTime.Services
 {
+    //TODO: Make sure you set up your interface here. Otherwise, this looks really clean. Nice CRUD. I can also see how it pairs with your other services well.
     public class LocationPromptService
     {
         private readonly Guid _userId;
