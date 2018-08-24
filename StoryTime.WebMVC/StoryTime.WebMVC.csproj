@@ -290,6 +290,7 @@
     <Content Include="Views\TwistPrompt\Delete.cshtml" />
     <Content Include="Views\StorySubmission\Create.cshtml" />
     <Content Include="Views\StorySubmission\Index.cshtml" />
+    <Content Include="Views\StorySubmission\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

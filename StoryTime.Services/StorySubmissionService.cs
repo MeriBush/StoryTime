@@ -18,6 +18,29 @@ namespace StoryTime.Services
             _userId = studentId;
         }
 
+        public IEnumerable<StorySubmissionListItem> AdminGetAllStorySubmissions()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .StorySubmissions
+                    .Select(
+                        e =>
+                        new StorySubmissionListItem
+                        {
+                            StoryId = e.StoryId,
+                            StudentId = e.StudentId,
+                            StudentName = "",
+                            StoryTitle = e.StoryTitle,
+                            StoryText = e.StoryText,
+                            CreatedUtc = DateTimeOffset.Now
+                        });
+
+                return query.ToArray();
+            }
+        }
+
         public IEnumerable<StorySubmissionListItem> GetStorySubmissions()
         {
             using (var ctx = new ApplicationDbContext())
@@ -25,7 +48,7 @@ namespace StoryTime.Services
                 var query =
                     ctx
                     .StorySubmissions
-                    .Where(e => e.StudentId == _userId)  //OR e.AdminId == _userId
+                    .Where(e => e.StudentId == _userId /*|| e.AdminId == _userId*/)
                     .Select(
                         e =>
                         new StorySubmissionListItem

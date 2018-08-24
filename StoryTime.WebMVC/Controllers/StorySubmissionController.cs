@@ -13,13 +13,22 @@ namespace StoryTime.WebMVC.Controllers
     //Authorize student role permission
     public class StorySubmissionController : Controller
     {
-        // GET: GeneratedPrompt
-        public ActionResult Index()
+        [Authorize(Roles ="Admin")]
+        public ActionResult AdminIndex()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new StorySubmissionService(userId);
-            var model = service.GetStudentNameFromId(service.GetStorySubmissions());
+            var model = service.GetStudentNameFromId(service.AdminGetAllStorySubmissions());
             return View(model);
+        }
+
+        // GET: GeneratedPrompt
+        public ActionResult Index()
+        {
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var service = new StorySubmissionService(userId);
+                var model = service.GetStudentNameFromId(service.GetStorySubmissions());
+                return View(model);
         }
 
         public ActionResult Create()
