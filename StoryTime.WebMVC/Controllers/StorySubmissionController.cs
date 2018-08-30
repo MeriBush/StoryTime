@@ -58,6 +58,75 @@ namespace StoryTime.WebMVC.Controllers
             }
         }
 
+        public ActionResult Edit(int id)
+        {
+            if (User.IsInRole("Admin"))
+            {
+                var service = CreateStorySubmissionService();
+                var detail = service.AdminGetStoryById(id);
+                var model =
+                    new StorySubmissionEdit
+                    {
+                        StoryId = detail.StoryId,
+                        StoryTitle = detail.StoryTitle,
+                        StoryText = detail.StoryText
+                    };
+                return View(model);
+            }
+
+            if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+            {
+                var service = CreateStorySubmissionService();
+                var detail = service.GetStoryById(id);
+                var model =
+                    new StorySubmissionEdit
+                    {
+                        StoryId = detail.StoryId,
+                        StoryTitle = detail.StoryTitle,
+                        StoryText = detail.StoryText
+                    };
+                return View(model);
+            }
+            return View();    //Why is it trying to force little Timmy to login???
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, StorySubmissionEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.StoryId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateStorySubmissionService();
+
+            //Added
+            if (User.IsInRole("Admin"))  //This fixed Timmy going to login view instead of index
+            {
+                if (service.AdminUpdateStorySubmission(model))
+                {
+                    TempData["SaveResult"] = "Your comments have been recorded.";
+                    return RedirectToAction("AdminIndex");
+                }
+            }
+            //Added
+            if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))   //This fixed Timmy going to login view instead of index
+            {
+                if (service.UpdateStorySubmission(model))
+                {
+                    TempData["SaveResult"] = "Your story was updated for the teacher's review.";
+                    return RedirectToAction("Index");
+                }
+            }
+
+            ModelState.AddModelError("", "Your story could not be updated.");
+            return View(model);
+        }
+
         private StorySubmissionService CreateStorySubmissionService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

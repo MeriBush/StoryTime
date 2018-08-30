@@ -54,7 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdminService.cs" />
-    <Compile Include="IGeneratedPrompt.cs" />
+    <Compile Include="PromptInterfaces\ICharacterPromptService.cs" />
+    <Compile Include="PromptInterfaces\ILocationPromptService.cs" />
+    <Compile Include="IStorySubmissionService.cs" />
+    <Compile Include="PromptInterfaces\ITwistPromptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +68,10 @@
     <ProjectReference Include="..\StoryTime.Data\StoryTime.Data.csproj">
       <Project>{69D08EF1-D46E-4C7F-93E3-B70BA6817E46}</Project>
       <Name>StoryTime.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoryTime.Models\StoryTime.Models.csproj">
+      <Project>{27BA9BF6-14E6-4C13-B2CF-4D0BF83A1C1C}</Project>
+      <Name>StoryTime.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

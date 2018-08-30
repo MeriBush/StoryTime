@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201808231415193_seven.Designer.cs">
       <DependentUpon>201808231415193_seven.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808262123078_seven1.cs" />
+    <Compile Include="Migrations\201808262123078_seven1.Designer.cs">
+      <DependentUpon>201808262123078_seven1.cs</DependentUpon>
+    </Compile>
     <Compile Include="StorySubmission.cs" />
     <Compile Include="CharacterPrompt.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808231415193_seven.resx">
       <DependentUpon>201808231415193_seven.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808262123078_seven1.resx">
+      <DependentUpon>201808262123078_seven1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

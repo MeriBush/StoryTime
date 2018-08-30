@@ -1,4 +1,5 @@
-﻿using StoryTime.Data;
+﻿using StoryTime.Contracts;
+using StoryTime.Data;
 using StoryTime.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StoryTime.Services
 {
-    public class CharacterPromptService
+    public class CharacterPromptService : ICharacterPromptService
     {
         private readonly Guid _userId;
 

@@ -54,11 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminService.cs" />
-    <Compile Include="CharacterPromptService.cs" />
+    <Compile Include="PromptServices\CharacterPromptService.cs" />
     <Compile Include="StorySubmissionService.cs" />
-    <Compile Include="LocationPromptService.cs" />
+    <Compile Include="PromptServices\LocationPromptService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TwistPromptService.cs" />
+    <Compile Include="PromptServices\TwistPromptService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
