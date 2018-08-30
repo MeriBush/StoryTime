@@ -58,6 +58,23 @@ namespace StoryTime.WebMVC.Controllers
             }
         }
 
+        public ActionResult Details (int id)
+        {
+            if(User.IsInRole("Admin"))
+            {
+                var service = CreateStorySubmissionService();
+                var model = service.AdminGetStoryById(id);
+                return View(model);
+            }
+            if(User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+            {
+                var service = CreateStorySubmissionService();
+                var model = service.GetStoryById(id);
+                return View(model);
+            }
+            return View();
+        }
+
         public ActionResult Edit(int id)
         {
             if (User.IsInRole("Admin"))
