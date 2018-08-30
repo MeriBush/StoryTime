@@ -35,7 +35,7 @@ namespace StoryTime.Services
                             StudentId = e.StudentId,
                             StudentName = "",
                             StoryTitle = e.StoryTitle,
-                            StoryText = e.StoryText,
+                            //StoryText = e.StoryText,
                             CreatedUtc = DateTimeOffset.Now
                         });
 
@@ -59,7 +59,7 @@ namespace StoryTime.Services
                             StudentId = e.StudentId,
                             StudentName = "",
                             StoryTitle = e.StoryTitle,
-                            StoryText = e.StoryText,
+                            //StoryText = e.StoryText,
                             CreatedUtc = DateTimeOffset.Now
                         });
 
@@ -212,6 +212,20 @@ namespace StoryTime.Services
                 entity.StoryTitle = model.StoryTitle;
                 entity.StoryText = model.StoryText;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteStorySubmission(int StoryId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .StorySubmissions
+                    .Single(e => e.StoryId == StoryId);
+                ctx.StorySubmissions.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

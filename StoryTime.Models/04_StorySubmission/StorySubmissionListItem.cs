@@ -13,7 +13,6 @@ namespace StoryTime.Models
         public Guid StudentId { get; set; }
         public string StudentName { get; set; }
         public string StoryTitle { get; set; }
-        public string StoryText { get; set; }
 
         [Display(Name ="Created")]
         public DateTimeOffset CreatedUtc { get; set; }

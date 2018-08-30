@@ -58,7 +58,7 @@ namespace StoryTime.WebMVC.Controllers
             }
         }
 
-        public ActionResult Details (int id)
+        public ActionResult Details(int id)
         {
             if(User.IsInRole("Admin"))
             {
@@ -104,7 +104,7 @@ namespace StoryTime.WebMVC.Controllers
                     };
                 return View(model);
             }
-            return View();    //Why is it trying to force little Timmy to login???
+            return View();
         }
 
         [HttpPost]
@@ -121,8 +121,7 @@ namespace StoryTime.WebMVC.Controllers
 
             var service = CreateStorySubmissionService();
 
-            //Added
-            if (User.IsInRole("Admin"))  //This fixed Timmy going to login view instead of index
+            if (User.IsInRole("Admin"))
             {
                 if (service.AdminUpdateStorySubmission(model))
                 {
@@ -130,8 +129,8 @@ namespace StoryTime.WebMVC.Controllers
                     return RedirectToAction("AdminIndex");
                 }
             }
-            //Added
-            if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))   //This fixed Timmy going to login view instead of index
+
+            if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
             {
                 if (service.UpdateStorySubmission(model))
                 {
@@ -142,6 +141,26 @@ namespace StoryTime.WebMVC.Controllers
 
             ModelState.AddModelError("", "Your story could not be updated.");
             return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateStorySubmissionService();
+            var model = service.AdminGetStoryById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateStorySubmissionService();
+            service.DeleteStorySubmission(id);
+            TempData["SaveResult"] = "Your character was deleted.";
+            return RedirectToAction("AdminIndex");
         }
 
         private StorySubmissionService CreateStorySubmissionService()

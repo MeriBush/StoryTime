@@ -1,11 +1,12 @@
 ﻿@model StoryTime.Models.StorySubmissionDetail
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
 }
 
-<h2>Details</h2>
+<h2>Delete</h2>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>StorySubmissionDetail</h4>
     <hr />
@@ -20,9 +21,9 @@
 
         @*<dt>
             @Html.DisplayNameFor(model => model.StudentId)
-        </dt>
+        </dt>*@
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.StudentId)
         </dd>*@
 
@@ -67,15 +68,13 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "AdminIndex", "StorySubmission")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StoryId }) |
-    @if (User.IsInRole("Admin"))
-    {
-        @Html.ActionLink("Back to List", "AdminIndex")
-    }
-    @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
-    {
-        @Html.ActionLink("Back to List", "Index")
-    }
-</p>

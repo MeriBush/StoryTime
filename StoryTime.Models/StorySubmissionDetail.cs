@@ -10,6 +10,8 @@ namespace StoryTime.Models
     public class StorySubmissionDetail
     {
         public int StoryId { get; set; }
+        public Guid StudentId { get; set; }
+        public string StudentName { get; set; }
         public string StoryTitle { get; set; }
         public string StoryText { get; set; }
 
