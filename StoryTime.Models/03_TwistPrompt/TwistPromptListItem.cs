@@ -9,7 +9,10 @@ namespace StoryTime.Models
 {
     public class TwistPromptListItem
     {
+        [Display(Name ="Twist ID")]
         public int TwistId { get; set; }
+
+        [Display(Name ="Plot Twist")]
         public string Twist { get; set; }
 
         [Display(Name ="Created")]

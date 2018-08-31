@@ -9,6 +9,7 @@ namespace StoryTime.Models
 {
     public class CharacterPromptDetail
     {
+        [Display(Name ="Character ID")]
         public int CharacterId { get; set; }
         public string Character { get; set; }
 

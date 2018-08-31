@@ -9,6 +9,7 @@ namespace StoryTime.Models
 {
     public class LocationPromptListItem
     {
+        [Display(Name ="Location ID")]
         public int LocationId { get; set; }
         public string Location { get; set; }
 

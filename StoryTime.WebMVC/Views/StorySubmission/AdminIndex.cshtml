@@ -9,49 +9,53 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.StoryId)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.StudentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StoryTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoryId)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.StudentId)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoryTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StoryId })
-        </td>
-    </tr>
-}
+<div class="index">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StoryId)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.StudentId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoryTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoryId)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.StudentId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoryTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StoryId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.StoryId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StoryId })
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>

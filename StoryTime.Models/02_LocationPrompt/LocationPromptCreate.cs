@@ -10,6 +10,7 @@ namespace StoryTime.Models
     public class LocationPromptCreate
     {
         [Required]
+        [Display(Name ="New Location")]
         public string Location { get; set; }
     }
 }

@@ -25,5 +25,30 @@ textarea {
 }
 
 a {
-    color: #EA853D;
+    color: #DCA258;
+}
+
+/*Login Screen*/
+#login{
+    
+}
+
+.create {
+    background-color: rgba(255,255,255,0.5);
+    padding: 2em;
+    border-radius: 12px;
+}
+
+.index {
+    background-color: rgba(255,255,255,0.5);
+    padding: 2em;
+    border-radius: 12px;
+}
+
+.prompt{
+
+}
+
+ul{
+    list-style: none;
 }
