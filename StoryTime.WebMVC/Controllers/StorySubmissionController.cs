@@ -64,6 +64,8 @@ namespace StoryTime.WebMVC.Controllers
             {
                 var service = CreateStorySubmissionService();
                 var model = service.AdminGetStoryById(id);
+
+                model.StudentName = service.GetStudentName(model.StudentId.ToString());
                 return View(model);
             }
             if(User.Identity.IsAuthenticated && !User.IsInRole("Admin"))

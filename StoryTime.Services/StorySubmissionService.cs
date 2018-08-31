@@ -158,7 +158,9 @@ namespace StoryTime.Services
                         StoryTitle = entity.StoryTitle,
                         StoryText = entity.StoryText,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        ModifiedUtc = entity.ModifiedUtc,
+                        StudentId = entity.StudentId,
+                        
                     };
             }
         }
@@ -228,6 +230,17 @@ namespace StoryTime.Services
                 ctx.StorySubmissions.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public string GetStudentName(string studentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var user = ctx.Users
+                    .SingleOrDefault(u => u.Id == studentId);
+
+                return user.UserName;
             }
         }
     }
