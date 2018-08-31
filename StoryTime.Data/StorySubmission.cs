@@ -15,6 +15,8 @@ namespace StoryTime.Data
         [Required]
         public Guid StudentId { get; set; }
 
+        public virtual ApplicationUser User { get; set; }
+
         [Required]
         public string StoryTitle { get; set; }
 

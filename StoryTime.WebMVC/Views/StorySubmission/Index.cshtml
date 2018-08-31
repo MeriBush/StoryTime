@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<StoryTime.Models.StorySubmissionListItem>
+<head>
+    @{
+        ViewBag.Title = "Index";
+    }
 
-@{
-    ViewBag.Title = "Index";
-}
+    @Scripts.Render("~/Content/Site.css")
+</head>
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { style = "color:#EA853D" })
 </p>
 <table class="table">
     <tr>
@@ -15,8 +18,8 @@
             @Html.DisplayNameFor(model => model.StoryId)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </th>*@
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.StudentName)
         </th>
@@ -29,29 +32,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoryId)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.StudentId)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoryTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.StoryId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.StoryId }) @*|*@
-            @*@Html.ActionLink("Delete", "Delete", new { id = item.StoryId })*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoryId)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.StudentId)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoryTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StoryId }, new { style = "color:#EA853D" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StoryId }, new { style = "color:#EA853D" }) @*|*@
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.StoryId })*@
+            </td>
+        </tr>
+    }
 
 </table>

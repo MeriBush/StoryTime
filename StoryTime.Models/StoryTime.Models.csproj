@@ -70,7 +70,7 @@
     <Compile Include="03_TwistPrompt\TwistPromptEdit.cs" />
     <Compile Include="04_StorySubmission\StorySubmissionListItem.cs" />
     <Compile Include="04_StorySubmission\StorySubmissionEdit.cs" />
-    <Compile Include="StorySubmissionDetail.cs" />
+    <Compile Include="04_StorySubmission\StorySubmissionDetail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

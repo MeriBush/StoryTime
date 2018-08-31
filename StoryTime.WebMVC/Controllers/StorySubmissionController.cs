@@ -25,10 +25,10 @@ namespace StoryTime.WebMVC.Controllers
         // GET: GeneratedPrompt
         public ActionResult Index()
         {
-                var userId = Guid.Parse(User.Identity.GetUserId());
-                var service = new StorySubmissionService(userId);
-                var model = service.GetStudentNameFromId(service.GetStorySubmissions());
-                return View(model);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new StorySubmissionService(userId);
+            var model = service.GetStudentNameFromId(service.GetStorySubmissions());
+            return View(model);
         }
 
         public ActionResult Create()

@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201808301724495_eight.Designer.cs">
       <DependentUpon>201808301724495_eight.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808301900161_ten.cs" />
+    <Compile Include="Migrations\201808301900161_ten.Designer.cs">
+      <DependentUpon>201808301900161_ten.cs</DependentUpon>
+    </Compile>
     <Compile Include="StorySubmission.cs" />
     <Compile Include="CharacterPrompt.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -121,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808301724495_eight.resx">
       <DependentUpon>201808301724495_eight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808301900161_ten.resx">
+      <DependentUpon>201808301900161_ten.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
