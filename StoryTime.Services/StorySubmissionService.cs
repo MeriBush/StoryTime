@@ -98,7 +98,6 @@ namespace StoryTime.Services
 
         public string GetCharacter(ApplicationDbContext characterCtx)
         {
-            //Not sure how Random works yet but I really like this!
             Random random = new Random();
             var characterList = characterCtx.CharacterPrompts.ToList();
             var randomNumber = random.Next(0, characterList.Count);
@@ -159,8 +158,7 @@ namespace StoryTime.Services
                         StoryText = entity.StoryText,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc,
-                        StudentId = entity.StudentId,
-                        
+                        StudentId = entity.StudentId,                     
                     };
             }
         }

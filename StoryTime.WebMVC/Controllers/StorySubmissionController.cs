@@ -146,16 +146,18 @@ namespace StoryTime.WebMVC.Controllers
         }
 
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var service = CreateStorySubmissionService();
             var model = service.AdminGetStoryById(id);
-
+            model.StudentName = service.GetStudentName(model.StudentId.ToString());
             return View(model);
         }
 
         [HttpPost]
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
