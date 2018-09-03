@@ -1,12 +1,11 @@
 ﻿@model StoryTime.Models.TwistPromptDetail
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Details";
 }
 
-<h2>Delete Plot Twist</h2>
+<h2>Plot Twist Details</h2>
 
-<h3>Are you sure you want to delete this plot twist?</h3>
 <div class="index">
     <dl class="dl-horizontal">
         <dt>
@@ -42,13 +41,9 @@
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.TwistId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
+

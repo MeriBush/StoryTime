@@ -45,3 +45,8 @@ a {
 ul{
     list-style: none;
 }
+
+#StoryText{
+    height: 400px;
+    max-width: none;
+}

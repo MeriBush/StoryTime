@@ -4,11 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>Location Index</h2>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -20,40 +16,43 @@
     </div>
 }
 
-<div class="index">
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th></th>
-    </tr>
+    <div class="index">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedUtc)
+                </th>
+                <th></th>
+            </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocationId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.LocationId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.LocationId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
-            </td>
-        </tr>
-    }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedUtc)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.LocationId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.LocationId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
+                    </td>
+                </tr>
+            }
 
-</table>
-</div>
+        </table>
+    </div>

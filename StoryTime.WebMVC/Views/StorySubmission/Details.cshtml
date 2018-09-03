@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Story Details</h2>
 
 <div class="index">
     <dl class="dl-horizontal">
@@ -17,12 +17,12 @@
         </dd>
         <br />
         @*<dt>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </dt>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentId)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.StudentId)
+            </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.StudentName)
@@ -65,15 +65,16 @@
         </dd>
 
     </dl>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.StoryId }) |
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Back to List", "AdminIndex")
+        }
+        @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Back to List", "Index")
+        }
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StoryId }) |
-    @if (User.IsInRole("Admin"))
-    {
-        @Html.ActionLink("Back to List", "AdminIndex")
-    }
-    @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
-    {
-        @Html.ActionLink("Back to List", "Index")
-    }
-</p>
