@@ -50,3 +50,16 @@ ul{
     height: 400px;
     max-width: none;
 }
+
+.jumbotron {
+    font-family: 'Uncial Antiqua', cursive;
+}
+
+#login {
+    padding-top: 3em;
+    font-family: 'Uncial Antiqua', cursive;
+}
+
+.navbar-header {
+    font-family: 'Uncial Antiqua', cursive;
+}
