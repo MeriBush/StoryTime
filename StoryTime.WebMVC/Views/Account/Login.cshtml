@@ -4,15 +4,13 @@
 @{
     ViewBag.Title = "Log in";
 }
-
 <center>
-    <div class="row" id="login">
-        <div class="col-md-6"> @*changed this from 8*@
+        <div class="col-md-offset-2 col-md-8" id="login"> @*changed this from 8*@
             <section id="loginForm" class="index">
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
-                    <h2>Welcome to Story Time!</h2>
+                    <h2>Please login to tell your story!</h2>
                     <br />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
@@ -52,8 +50,7 @@
                 }
             </section>
         </div>
-    </div>
-</center>
+    </center>
         @*<div class="col-md-4">
             <section id="socialLoginForm">
                 @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })

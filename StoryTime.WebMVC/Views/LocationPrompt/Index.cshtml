@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Location Index</h2>
+<center><h2 class="font">Location Index</h2></center>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -17,18 +17,18 @@
 }
 
     <div class="index">
-        <p>
+        <p class="font">
             @Html.ActionLink("Create New", "Create")
         </p>
         <table class="table">
             <tr>
-                <th>
+                <th class="font">
                     @Html.DisplayNameFor(model => model.LocationId)
                 </th>
-                <th>
+                <th class="font">
                     @Html.DisplayNameFor(model => model.Location)
                 </th>
-                <th>
+                <th class="font">
                     @Html.DisplayNameFor(model => model.CreatedUtc)
                 </th>
                 <th></th>

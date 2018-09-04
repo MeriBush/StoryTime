@@ -62,14 +62,30 @@ ul{
 }
 
 #login {
-    padding-top: 3em;
+    padding-top: 2em;
     font-family: 'Uncial Antiqua', cursive;
+    margin-top: 3em;   
 }
 
 .navbar-header {
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: x-large;
+}
+
+.navbar-right {
     font-family: 'Uncial Antiqua', cursive;
 }
 
 .font {
     font-family: 'Uncial Antiqua', cursive;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: none;
+    color: dimgrey;
+    text-align: right;
 }
