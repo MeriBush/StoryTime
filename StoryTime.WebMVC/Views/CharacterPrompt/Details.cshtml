@@ -4,11 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Character Details</h2>
+<center><h2 class="font">Character Details</h2></center>
 
 <div class="index">
     <dl class="dl-horizontal">
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.CharacterId)
         </dt>
 
@@ -16,7 +16,7 @@
             @Html.DisplayFor(model => model.CharacterId)
         </dd>
         <br />
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.Character)
         </dt>
 
@@ -24,7 +24,7 @@
             @Html.DisplayFor(model => model.Character)
         </dd>
         <br />
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </dt>
 
@@ -32,7 +32,7 @@
             @Html.DisplayFor(model => model.CreatedUtc)
         </dd>
 
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.ModifiedUtc)
         </dt>
 

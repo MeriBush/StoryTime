@@ -4,11 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Story Details</h2>
+<center><h2 class="font">Story Details</h2></center>
 
 <div class="index">
     <dl class="dl-horizontal">
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.StoryId)
         </dt>
 
@@ -24,7 +24,7 @@
                 @Html.DisplayFor(model => model.StudentId)
             </dd>*@
 
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.StudentName)
         </dt>
 
@@ -32,7 +32,7 @@
             @Html.DisplayFor(model => model.StudentName)
         </dd>
         <br />
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.StoryTitle)
         </dt>
 
@@ -40,7 +40,7 @@
             @Html.DisplayFor(model => model.StoryTitle)
         </dd>
         <br />
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.StoryText)
         </dt>
 
@@ -48,7 +48,7 @@
             @Html.DisplayFor(model => model.StoryText)
         </dd>
         <br />
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </dt>
 
@@ -56,7 +56,7 @@
             @Html.DisplayFor(model => model.CreatedUtc)
         </dd>
 
-        <dt>
+        <dt class="font">
             @Html.DisplayNameFor(model => model.ModifiedUtc)
         </dt>
 

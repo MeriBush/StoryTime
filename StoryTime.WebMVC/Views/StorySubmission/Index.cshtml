@@ -7,7 +7,7 @@
     @Scripts.Render("~/Content/Site.css")
 </head>
 
-<h2>Submitted Assignments</h2>
+<center><h2 class="font">My Stories</h2></center>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -20,11 +20,11 @@
 }
 
     <div class="index">
-        <p>
+        <p class="font">
             @Html.ActionLink("Create New", "Create")
         </p>
         <table class="table">
-            <tr>
+            <tr class="font">
                 <th>
                     @Html.DisplayNameFor(model => model.StoryId)
                 </th>
